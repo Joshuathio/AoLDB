@@ -58,7 +58,7 @@ BEGIN
     SELECT 
         inv.InvoiceID,
         inv.InvoiceDate,
-        SUM(oi.Quantity * i.StockPrice) AS TotalValue
+        SUM(oi.Quantity * it.StockPrice) AS TotalValue
     FROM Invoice AS inv
     JOIN OrderedItem AS oi ON inv.InvoiceID = oi.InvoiceID
     JOIN Item AS it ON oi.StockCode = it.StockCode
